@@ -68,3 +68,111 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+ser@DESKTOP-MU81B0H MINGW64 ~/ssafy/toy_project/fronend (master)
+$ git remote
+origin
+
+user@DESKTOP-MU81B0H MINGW64 ~/ssafy/toy_project/fronend (master)
+$ git add *
+fatal: in unpopulated submodule 'fronend'
+
+user@DESKTOP-MU81B0H MINGW64 ~/ssafy/toy_project/fronend (master)
+$ git rm --cached *
+fatal: pathspec 'node_modules' did not match any files
+
+user@DESKTOP-MU81B0H MINGW64 ~/ssafy/toy_project/fronend (master)
+$ git add *
+fatal: in unpopulated submodule 'fronend'
+
+user@DESKTOP-MU81B0H MINGW64 ~/ssafy/toy_project/fronend (master)
+$ ls
+node_modules/  package.json  package-lock.json  public/  README.md  src/
+
+user@DESKTOP-MU81B0H MINGW64 ~/ssafy/toy_project/fronend (master)
+$ git add public/
+fatal: in unpopulated submodule 'fronend'
+
+user@DESKTOP-MU81B0H MINGW64 ~/ssafy/toy_project/fronend (master)
+$ git rm --cached . -rf
+rm 'fronend'
+
+user@DESKTOP-MU81B0H MINGW64 ~/ssafy/toy_project/fronend (master)
+$ git add *
+The following paths are ignored by one of your .gitignore files:
+fronend/node_modules
+hint: Use -f if you really want to add them.
+hint: Turn this message off by running
+hint: "git config advice.addIgnoredFile false"
+warning: LF will be replaced by CRLF in fronend/README.md.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in fronend/package-lock.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in fronend/package.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in fronend/public/index.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in fronend/public/manifest.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in fronend/public/robots.txt.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in fronend/src/App.js.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in fronend/src/index.js.
+The file will have its original line endings in your working directory
+
+user@DESKTOP-MU81B0H MINGW64 ~/ssafy/toy_project/fronend (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    ./
+        new file:   README.md
+        new file:   package-lock.json
+        new file:   package.json
+        new file:   public/favicon.ico
+        new file:   public/index.html
+        new file:   public/logo192.png
+        new file:   public/logo512.png
+        new file:   public/manifest.json
+        new file:   public/robots.txt
+        new file:   src/App.js
+        new file:   src/index.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../.gitignore
+        .gitignore
+
+
+user@DESKTOP-MU81B0H MINGW64 ~/ssafy/toy_project/fronend (master)
+$ git commit -m "frontend push"
+[master 07c5c71] frontend push
+ 12 files changed, 16448 insertions(+), 1 deletion(-)
+ delete mode 160000 fronend
+ create mode 100644 fronend/README.md
+ create mode 100644 fronend/package-lock.json
+ create mode 100644 fronend/package.json
+ create mode 100644 fronend/public/favicon.ico
+ create mode 100644 fronend/public/index.html
+ create mode 100644 fronend/public/logo192.png
+ create mode 100644 fronend/public/logo512.png
+ create mode 100644 fronend/public/manifest.json
+ create mode 100644 fronend/public/robots.txt
+ create mode 100644 fronend/src/App.js
+ create mode 100644 fronend/src/index.js
+
+user@DESKTOP-MU81B0H MINGW64 ~/ssafy/toy_project/fronend (master)
+$ git push origin master
+Enumerating objects: 17, done.
+Counting objects: 100% (17/17), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (16/16), 184.23 KiB | 8.01 MiB/s, done.
+Total 16 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/jiyoung1329/sharediary.git
+   14ddb0c..07c5c71  master -> master
+
+user@DESKTOP-MU81B0H MINGW64 ~/ssafy/toy_project/fronend (master)
+$
