@@ -105,7 +105,6 @@ DATABASES = {
         'PASSWORD' : 'jykim1173!@',
         'HOST' : '127.0.0.1',
         'PORT' : '3306',
-
     }
 }
 
@@ -148,4 +147,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-AUTH_USER_MODEL = 'account.User' 
+KEY_PATH = os.path.join(BASE_DIR, 'key')
+# AUTH_USER_MODEL = 'account.User' 
