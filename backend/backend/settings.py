@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
+    'firebase_auth',
 
     # app
     'diary',
@@ -49,7 +50,11 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES' : [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES':(
+        'REST_framework.authentication.SessionAuthentication',
+        'firebase_auth.authentication.FirebaseAuthentication',
+    ),
 }
 
 MIDDLEWARE = [
@@ -98,6 +103,14 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # }
 
 DATABASES = {
+    'default' : {
+        'ENGINE' : 'django.db.backends.mysql',
+        'NAME' : 'default',
+        'USER' : 'root',
+        'PASSWORD' : 'jykim1173!@',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
+    },
     'diary' : {
         'ENGINE' : 'django.db.backends.mysql',
         'NAME' : 'diary',

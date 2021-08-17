@@ -24,6 +24,6 @@ class MultiDBRouter(object):
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         if app_label == 'diary':
-            return db in self.model_list
+            return db == 'diary'
 
         return None
