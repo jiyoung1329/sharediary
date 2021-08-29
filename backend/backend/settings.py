@@ -40,22 +40,21 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
-    'firebase_auth',
 
     # app
     'diary',
     'account',
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES' : [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ],
-    'DEFAULT_AUTHENTICATION_CLASSES':(
-        'REST_framework.authentication.SessionAuthentication',
-        'firebase_auth.authentication.FirebaseAuthentication',
-    ),
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES' : [
+#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+#     ],
+#     'DEFAULT_AUTHENTICATION_CLASSES':(
+#         'REST_framework.authentication.SessionAuthentication',
+#         'firebase_auth.authentication.FirebaseAuthentication',
+#     ),
+# }
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',     # 추가

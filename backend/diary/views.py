@@ -17,5 +17,3 @@ class DetailDiary(generics.RetrieveUpdateDestroyAPIView) :
 
 
 # Create your views here.
-def index(request) : 
-    pass    
