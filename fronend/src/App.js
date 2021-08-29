@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div>
         {this.state.diarys.map(item => (
-          <div key={item.id}>
+          <div key={item.id}> 
             <h1>{item.title}</h1>
             <span>{item.descriptions}</span>
           </div>
