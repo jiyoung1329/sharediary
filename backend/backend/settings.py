@@ -98,6 +98,15 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # }
 
 DATABASES = {
+    'default' : {
+        'ENGINE' : 'django.db.backends.mysql',
+        'NAME' : 'default',
+        'USER' : 'root',
+        'PASSWORD' : 'jykim1173!@',
+        'HOST' : '127.0.0.1',
+        'PORT' : '3306',
+    },
+
     'diary' : {
         'ENGINE' : 'django.db.backends.mysql',
         'NAME' : 'diary',
@@ -118,8 +127,8 @@ DATABASES = {
 }
 
 DATABASE_ROUTERS = [
-    'diary.routers.MultiDBRouter',
     'account.routers.MultiDBRouter',
+    'diary.routers.MultiDBRouter',
 
 ]
 

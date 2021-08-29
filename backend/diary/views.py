@@ -3,15 +3,15 @@ from django.shortcuts import render
 from django.conf import settings
 from rest_framework import generics
 
-from .models import Diary
+from .models import Article
 from .serializers import DiarySerializer
 
 class ListDiary(generics.ListCreateAPIView):
-    queryset = Diary.objects.all()
+    queryset = Article.objects.all()
     serializer_class = DiarySerializer
 
 class DetailDiary(generics.RetrieveUpdateDestroyAPIView) : 
-    queryset = Diary.objects.all()
+    queryset = Article.objects.all()
     serializer_class = DiarySerializer
 
 

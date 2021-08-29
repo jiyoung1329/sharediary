@@ -7,22 +7,21 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-
-class Comment(models.Model):
-    id = models.IntegerField(primary_key=True)
-    comment = models.TextField()
-    diary_diary = models.ForeignKey('Diary', models.DO_NOTHING)
-
-    class Meta:
-        managed = False
-        db_table = 'comment'
-
-
-class Diary(models.Model):
+class Article(models.Model):
     title = models.CharField(max_length=100)
     descriptions = models.TextField()
-    date = models.DateTimeField()
+    date = models.DateTimeField() 
 
     class Meta:
-        managed = False
-        db_table = 'diary'
+        app_label = 'diary'
+        db_table = 'article'
+
+
+class Comment(models.Model):
+    comment = models.TextField()
+    diary_diary = models.ForeignKey(Article, on_delete=models.CASCADE)
+
+    class Meta:
+        app_label = 'diary'
+        db_table = 'comment'
+

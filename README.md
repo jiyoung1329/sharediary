@@ -4,19 +4,17 @@
 
 ## 사용 툴
 
-1. Django
+1. Django(backend)
 
-2. react
+2. react(frontend)
 
-3. gcp - firebase
+3. postman
 
-4. mysql
+4. python
 
-5. postman
+5. javascript
 
-6. python
-
-7. javascript
+6. firebase(option)
 
    
 
@@ -41,6 +39,4 @@
 - 날짜는 1900년-2100년?
 
 ## 일정
-
-210802 - 로그인/회원가입 구현 
 

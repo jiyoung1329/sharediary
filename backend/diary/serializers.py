@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Diary
+from .models import Article
 
 class DiarySerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,4 +13,4 @@ class DiarySerializer(serializers.ModelSerializer):
             'descriptions',
             'date',
         )
-        model = Diary
+        model = Article
