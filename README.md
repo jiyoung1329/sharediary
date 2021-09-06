@@ -14,7 +14,9 @@
 
 5. javascript
 
-6. firebase(option)
+6. Figma
+
+7. firebase(option)
 
    
 
