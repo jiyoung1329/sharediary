@@ -39,26 +39,26 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
-    'corsheaders',
+    'corsheaders', # 추가 - cors
 
     # app
     'diary',
     'account',
 ]
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES' : [
-#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-#     ],
-#     'DEFAULT_AUTHENTICATION_CLASSES':(
-#         'REST_framework.authentication.SessionAuthentication',
-#         'firebase_auth.authentication.FirebaseAuthentication',
-#     ),
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES' : [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    # 'DEFAULT_AUTHENTICATION_CLASSES':(
+    #     'REST_framework.authentication.SessionAuthentication',
+    #     'firebase_auth.authentication.FirebaseAuthentication',
+    # ),
+}
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',     # 추가
-    'django.middleware.common.CommonMiddleware', # 추가
+    'corsheaders.middleware.CorsMiddleware',     # 추가 - cors
+    'django.middleware.common.CommonMiddleware', # 추가 - cors
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
