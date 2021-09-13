@@ -2,29 +2,29 @@ import os
 from django.shortcuts import render
 from django.conf import settings
 from rest_framework import generics
-from rest_framework import viewsets
+
+from rest_framework.viewsets import ReadOnlyModelViewSet, ModelViewSet
+
 
 from .models import Article, Comment
 from .serializers import ArticleSerializer, CommentSerializer
 
-class ListArticle(generics.ListCreateAPIView):
+
+class ArticleViewSet(ModelViewSet) : 
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
 
-# class ArticleViewSet(viewsets.ModelViewSet) : 
-#     serializer_class = ArticleSerializer
+article_list = ArticleViewSet.as_view({
+    'get' : 'list',
+    'post' : 'create',
+})
 
-#     def get_queryset(self) : 
-#         return Article.objects.all()
-
-
-# class ListDiary(generics.ListCreateAPIView):
-    # queryset = Article.objects.all()
-#     serializer_class = DiarySerializer
-
-# class DetailDiary(generics.RetrieveUpdateDestroyAPIView) : 
-#     queryset = Article.objects.all()
-#     serializer_class = DiarySerializer
+article_detail = ArticleViewSet.as_view({
+    'get' : 'retrieve',
+    'put' : 'update',
+    'patch' : 'partial_update',
+    'delete' : 'destroy',
+})
 
 
 
