@@ -20,7 +20,12 @@ function App(){
       </nav>
       <div className="container m-10">
         {/* Add the routes */}
-        
+        <Switch>
+          <Route exact path={["/", "/diary"]} component={MenuList} />
+          <Route exact path="/add/" component={AddMenu} />
+          <Route path="/menu/:id/update/" component={UpdateMenu} />
+        </Switch>
+
 
       </div>
     </div>
