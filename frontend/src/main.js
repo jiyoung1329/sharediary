@@ -1,30 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route, Link } from "react-router-dom";
+import Nav from "components/nav/index.js";
+import Loading from "components/loading/page.js";
 
 const Main = () => {
   return (
-    <div>
-      <nav className="navbar navbar-expand navbar-dark bg-info">
-        <a href="/" className="navbar-brand">
-          List
-        </a>
-        <div className="navbar-nav mr-auto">
-          <li className="nav-item">
-            <Link exact to={"/add/"} className="nav-link">
-              Add
-            </Link>
-          </li>
-        </div>
-      </nav>
-      <div className="container m-10">
-        {/* Add the routes */}
-        <Switch>
-          <Route exact path={["/", "/diary"]} component={MenuList} />
-          <Route exact path="/add/" component={AddMenu} />
-          <Route path="/menu/:id/update/" component={UpdateMenu} />
-        </Switch>
-      </div>
+    <div className="container m-10">
+      {/* Add the routes */}
+      <Switch>
+        <Route exact path={["/", "/diary"]} component={MenuList} />
+        <Route exact path="/add/" component={AddMenu} />
+        <Route path="/menu/:id/update/" component={UpdateMenu} />
+      </Switch>
     </div>
   );
 };
