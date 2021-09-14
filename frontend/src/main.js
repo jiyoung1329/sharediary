@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route, Link } from "react-router-dom";
 
-
-function App(){
-  return(
+const Main = () => {
+  return (
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-info">
         <a href="/" className="navbar-brand">
@@ -25,19 +24,10 @@ function App(){
           <Route exact path="/add/" component={AddMenu} />
           <Route path="/menu/:id/update/" component={UpdateMenu} />
         </Switch>
-
-
       </div>
     </div>
-  )
-}
-
-
-
-
-
-
-
+  );
+};
 
 // const App = () => {
 //   const [diary, setDiary] = useState();
@@ -67,4 +57,4 @@ function App(){
 //   );
 // };
 
-export default App;
+export default Main;
