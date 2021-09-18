@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./index.module.scss";
+import styles from "src/components/nav/index.module.css";
 import { Link } from "react-router-dom";
 
-export default Nav = () => {
+const Nav = () => {
   return (
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-info">
@@ -20,3 +20,5 @@ export default Nav = () => {
     </div>
   );
 };
+
+export default Nav;

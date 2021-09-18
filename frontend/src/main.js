@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route, Link } from "react-router-dom";
-// import Loading from "components/loading/page.js";
-import Home from "./home/index.js"
+import Loading from "src/components/loading/page.js";
+import Home from "src/home/index";
 import Nav from "src/components/nav/index";
 
 const Main = () => {
@@ -12,8 +12,8 @@ const Main = () => {
         {/* Add the routes */}
         <Switch>
           <Route exact path={["/", "/diary/"]} component={Home} />
-          <Route exact path="/add/" component={AddMenu} />
-          <Route path="/menu/:id/update/" component={UpdateMenu} />
+          {/* <Route exact path="/add/" component={AddMenu} />
+          <Route path="/menu/:id/update/" component={UpdateMenu} /> */}
         </Switch>
       </div>
     </div>

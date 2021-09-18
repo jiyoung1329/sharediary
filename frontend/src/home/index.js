@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
-import { baseURL, header } from "./../services/menu.service";
+import { baseURL, headers } from "src/services/menu.service";
 import { useHistory } from "react-router-dom";
 
-export default Home = () => {
+const Home = () => {
     const [articles, setArticles] = useState([]);
     const history = useHistory();
     const countRef = useRef(0);
@@ -28,7 +28,7 @@ export default Home = () => {
 
     return (
         <div>
-        {aritlces && articles.map((article, index) => (
+        {articles && articles.map((article, index) => (
             <div>
                 <h2>{article.title}</h2>
                 <p>{article.descriptions}</p>
@@ -42,3 +42,5 @@ export default Home = () => {
 
     )
 }
+
+export default Home;

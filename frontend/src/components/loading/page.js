@@ -1,6 +1,8 @@
 import React from "react";
-import styles from "components/nav/page.module.scss";
+import styles from "src/components/loading/page.module.css";
 
-export default Loading = () => {
+const Loading = () => {
   return <div></div>;
 };
+
+export default Loading;
