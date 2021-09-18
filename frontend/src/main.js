@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route, Link } from "react-router-dom";
-import Nav from "components/nav/index.js";
-import Loading from "components/loading/page.js";
+// import Loading from "components/loading/page.js";
+import Home from "./home/index.js"
+import Nav from "src/components/nav/index";
 
 const Main = () => {
   return (
-    <div className="container m-10">
-      {/* Add the routes */}
-      <Switch>
-        <Route exact path={["/", "/diary"]} component={MenuList} />
-        <Route exact path="/add/" component={AddMenu} />
-        <Route path="/menu/:id/update/" component={UpdateMenu} />
-      </Switch>
+    <div>
+      <Nav />
+      <div className="container m-10">
+        {/* Add the routes */}
+        <Switch>
+          <Route exact path={["/", "/diary/"]} component={Home} />
+          <Route exact path="/add/" component={AddMenu} />
+          <Route path="/menu/:id/update/" component={UpdateMenu} />
+        </Switch>
+      </div>
     </div>
   );
 };
