@@ -11,9 +11,6 @@ const Nav = () => {
         </a>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
-            <Link exact to={"/add/"} className="nav-link">
-              Add
-            </Link>
           </li>
         </div>
       </nav>

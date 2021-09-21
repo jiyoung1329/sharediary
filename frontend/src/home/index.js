@@ -13,13 +13,11 @@ const Home = () => {
     }, [countRef]);
 
     const retrieveAllArticles = () => {
-        axios.get(`${baseURL}/diary/`, {
-            headers : {
-                headers,
-            },
-        })
+        console.log(`${baseURL}/diary/`)
+        axios.get(`${baseURL}/diary/`)
         .then((res) => {
-            setArticles(response.data);
+            console.log("111")
+            setArticles(res.data);
         })
         .catch((e) => {
             console.error(e);
@@ -28,8 +26,9 @@ const Home = () => {
 
     return (
         <div>
+            <h1> HEllo</h1>
         {articles && articles.map((article, index) => (
-            <div>
+            <div key={index}>
                 <h2>{article.title}</h2>
                 <p>{article.descriptions}</p>
                 <p>{article.date}</p>
