@@ -9,7 +9,7 @@ const Main = () => {
     <div>
       <Nav />
       <div className="container m-10">
-        <Home /> 
+        <Route path="/diary" component={Home} />
       </div>
     </div>
   );

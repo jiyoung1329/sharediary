@@ -10,10 +10,8 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 media
-
+migrations/
 ## Django migrations ##
-./diary/migrations/
-./account/migrations/
 
 
 
