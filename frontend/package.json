@@ -4,7 +4,7 @@
   "description": "",
   "main": "_app.js",
   "private": true,
-  "proxy" : "https://127.0.0.1:8000",
+  "proxy": "https://127.0.0.1:8000",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -17,6 +17,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.4",
     "bootstrap": "^5.1.1",
+    "bootstrap-icons": "^1.5.0",
     "prettier": "^2.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

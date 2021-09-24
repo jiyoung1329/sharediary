@@ -1,16 +1,15 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Switch, Route, Link } from "react-router-dom";
-import Loading from "src/components/loading/page.js";
 import Home from "src/home/index";
-import Nav from "src/components/nav/index";
+import Loading from "src/components/loading/page";
+import Sign from "src/sign/sign";
+
+import { Switch, Route, Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Main = () => {
   return (
     <div>
-      <Nav />
-      <div className="container m-10">
-        <Route path="/diary" component={Home} />
-      </div>
+      <Route path="/" component={Sign} />
+      <Route path="/diary" component={Home} />
     </div>
   );
 };

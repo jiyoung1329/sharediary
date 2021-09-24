@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+
+  height: 70px;
+  width: 100%;
+  background-color: #9292d4;
+  color: white;
+}
+
+.navbar-create {
+  font-size: 20px;
+  margin-left: 60px;
+  color: white;
+}
+.navbar-title {
+  font-size: 28px;
+}
+.navbar-menu {
+  font-size: 18px;
+  margin-right: 60px;
+}
+.navbar-create:hover,
+.navbar-menu:hover {
+  cursor: pointer;
+  color: #c4c4c4;
+}
