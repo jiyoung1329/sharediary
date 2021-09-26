@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
-
-
-import { baseURL, headers } from "src/services/menu.service";
 import { useHistory } from "react-router-dom";
+import { baseURL, headers } from "src/services/menu.service";
+
+import Nav from "src/components/nav/nav";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
@@ -28,18 +28,20 @@ const Home = () => {
   };
 
   return (
-    <div>
-      {/* <Nav /> */}
-      <h1> Hello</h1>
-      {articles &&
-        articles.map((article, index) => (
-          <div key={index}>
-            <h2>{article.title}</h2>
-            <p>{article.descriptions}</p>
-            <p>{article.date}</p>
-          </div>
-        ))}
-    </div>
+    <>
+      <Nav />
+      <div>
+        <h1> Hello</h1>
+        {articles &&
+          articles.map((article, index) => (
+            <div key={index}>
+              <h2>{article.title}</h2>
+              <p>{article.descriptions}</p>
+              <p>{article.date}</p>
+            </div>
+          ))}
+      </div>
+    </>
   );
 };
 
