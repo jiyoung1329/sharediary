@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
-import Nav from "src/components/nav/nav";
+
 
 import { baseURL, headers } from "src/services/menu.service";
 import { useHistory } from "react-router-dom";
@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <div>
-      <Nav />
+      {/* <Nav /> */}
       <h1> Hello</h1>
       {articles &&
         articles.map((article, index) => (

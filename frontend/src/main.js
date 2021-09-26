@@ -1,3 +1,4 @@
+import Nav from "src/components/nav/nav";
 import Home from "src/home/index";
 import Loading from "src/components/loading/page";
 import Sign from "src/sign/sign";
@@ -8,7 +9,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Main = () => {
   return (
     <div>
-      <Route path="/" component={Sign} />
+      <Nav />
+      {/* <Route path="/" component={Sign} /> */}
       <Route path="/diary" component={Home} />
     </div>
   );
