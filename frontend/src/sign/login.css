@@ -38,6 +38,7 @@
 .signIn-input {
   height: 40px;
   width: 300px;
+  font-size: 14px;
   border-radius: 20px;
   border-color: transparent;
   box-shadow: 2px 2px 5px 1px #a3a3a3;

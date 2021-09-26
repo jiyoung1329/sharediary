@@ -12,7 +12,7 @@ const Login = () => {
           type="password"
           placeholder="PASSWORD"
         />
-        <button className="signIn-btn">Sign up</button>
+        <button className="signIn-btn">Sign In</button>
       </div>
       <div className="signUp-wrapper">
         <h1 className="signUp-title">안녕하세요 !</h1>
