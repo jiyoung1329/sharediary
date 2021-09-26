@@ -19,7 +19,9 @@ const Sign = () => {
              type="password" />
 
       <button class="signupButton">Sign up</button>
+
     </div>
+
   );
 };
 export default Sign;
