@@ -2,8 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { baseURL, headers } from "src/services/menu.service";
-
 import Nav from "src/components/nav/nav";
+
+import "./index.css";
 
 const Home = () => {
   const [articles, setArticles] = useState([]);
@@ -30,8 +31,23 @@ const Home = () => {
   return (
     <>
       <Nav />
-      <div>
-        <h1> Hello</h1>
+      <div className="main-wrapper">
+        <div className="left-wrapper">
+          <div className="title-wrapper">
+            <i className="bi bi-chevron-left arrow-left"></i>
+            <h1 className="date">8월 21일</h1>
+            <i className="bi bi-chevron-right arrow-right"></i>
+          </div>
+        </div>
+
+        <div className="right-wrapper">
+          <div className="title-wrapper">
+            <i className="bi bi-chevron-left arrow-left"></i>
+            <h1 className="month">AUGUST 2021</h1>
+            <i className="bi bi-chevron-right arrow-right"></i>
+          </div>
+        </div>
+        {/* <h1> Hello</h1>
         {articles &&
           articles.map((article, index) => (
             <div key={index}>
@@ -39,7 +55,7 @@ const Home = () => {
               <p>{article.descriptions}</p>
               <p>{article.date}</p>
             </div>
-          ))}
+          ))} */}
       </div>
     </>
   );

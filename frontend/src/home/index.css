@@ -1,0 +1,44 @@
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 70px);
+}
+
+.left-wrapper,
+.right-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-wrapper {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #f3f3ff;
+  /* min-width: 600px; */
+  flex: 40%;
+}
+
+.right-wrapper {
+  flex: 60%;
+  justify-content: center;
+  align-items: center;
+}
+.title-wrapper {
+  display: flex;
+  align-items: center;
+}
+.arrow-left,
+.arrow-right {
+  padding: 20px;
+  font-size: 30px;
+  color: #989898;
+}
+.arrow-left:hover,
+.arrow-right:hover {
+  cursor: pointer;
+}
+.month {
+  font-weight: bold;
+  padding-left: 100px;
+  padding-right: 100px;
+}

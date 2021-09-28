@@ -16,6 +16,11 @@
 }
 .navbar-title {
   font-size: 28px;
+  color: white;
+  text-decoration: none;
+}
+.navbar-title:hover {
+  color: white;
 }
 .navbar-menu {
   font-size: 18px;
