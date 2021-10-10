@@ -1,18 +1,22 @@
 import React from "react";
-import "src/sign/sign.css";
+import styles from "src/sign/sign.module.scss";
 
 const Sign = () => {
   return (
-    <div class="signup">
-      <h1 class="title">Sign up</h1>
-      <input class="id" placeholder="ID" />
-      <input class="password" placeholder="PASSWORD" type="password" />
+    <div className={styles.signup}>
+      <h1 className={styles.title}>Sign up</h1>
+      <input className={styles.id} placeholder="ID" />
       <input
-        class="passwordCheck"
+        className={styles.password}
+        placeholder="PASSWORD"
+        type="password"
+      />
+      <input
+        className={styles.passwordCheck}
         placeholder="PASSWORD CHECK"
         type="password"
       />
-      <button class="signupButton">Sign up</button>
+      <button className={styles.signupButton}>Sign up</button>
     </div>
   );
 };
