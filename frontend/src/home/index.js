@@ -33,11 +33,20 @@ const Home = () => {
       <Nav />
       <div className="main-wrapper">
         <div className="left-wrapper">
-          <div className="title-wrapper">
+          {/* <div className="title-wrapper">
             <i className="bi bi-chevron-left arrow-left"></i>
-            <h1 className="date">8월 21일</h1>
+            <h2 className="date">8월 21일</h2>
             <i className="bi bi-chevron-right arrow-right"></i>
           </div>
+          <div className="card-wrapper">
+            <div className="card-title">
+              <p className="time">09:00</p>
+              <p className="title">
+                제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.제목입니다.
+              </p>
+            </div>
+          </div> */}
+          hi
         </div>
 
         <div className="right-wrapper">
