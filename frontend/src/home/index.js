@@ -46,6 +46,7 @@ const Home = () => {
               </p>
             </div>
           </div> */}
+          hi
         </div>
 
         <div className="right-wrapper">
