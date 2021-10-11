@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Sign from "src/sign/sign";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "src/components/nav/nav.css";
+import styles from "src/components/nav/nav.module.scss";
 
 const handleSignout = () => {
   // 1. 로그아웃
@@ -14,15 +14,15 @@ const handleSignout = () => {
 
 const Nav = () => {
   return (
-    <nav className="navbar">
+    <nav className={styles["navbar"]}>
       <Link to="/create">
-        <i class="navbar-create bi bi-pencil-square" />
+        <i className={`bi bi-pencil-square ${styles["navbar-create"]}`} />
       </Link>
-      <Link to="/diary" className="navbar-title">
+      <Link to="/diary" className={styles["navbar-title"]}>
         <div>user의 다이어리</div>
       </Link>
-      <div className="navbar-menu">
-        <div className="signout-btn" onclick={handleSignout}>
+      <div className={styles["navbar-menu"]}>
+        <div className={styles["signout-btn"]} onClick={handleSignout}>
           로그아웃
         </div>
       </div>

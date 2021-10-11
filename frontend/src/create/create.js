@@ -1,12 +1,12 @@
 import React from "react";
 import Nav from "src/components/nav/nav";
-import "./index.css";
+import styles from "src/create/create.module.scss";
 
 const Create = () => {
   return (
     <>
       <Nav />
-      <div className="create-wrapper">
+      <div className={styles["create-wrapper"]}>
         <h2>Create page</h2>
       </div>
     </>

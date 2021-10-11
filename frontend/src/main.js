@@ -1,10 +1,10 @@
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Home from "src/home/index";
+import Home from "src/home/home";
 import Login from "src/sign/login";
 import Sign from "src/sign/sign";
-import Create from "src/create/index";
+import Create from "src/create/create";
 
 const Main = () => {
   return (
