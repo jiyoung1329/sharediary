@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Sign from "src/sign/sign";
+import Sign from "src/pages/sign/sign";
 
 import "bootstrap-icons/font/bootstrap-icons.css";
 import styles from "src/components/nav/nav.module.scss";
