@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders', # 추가 - cors
+    'knox',
 
     # app
     'diary',
@@ -48,8 +49,9 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES' : [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ],
+    'DEFAULT_AUTHENTICATION_CLASSES' : ('knox.auth.TokenAuthentication',),
     # 'DEFAULT_AUTHENTICATION_CLASSES':(
     #     'REST_framework.authentication.SessionAuthentication',
     #     'firebase_auth.authentication.FirebaseAuthentication',
