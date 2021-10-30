@@ -5,6 +5,8 @@ import React, { useEffect, useState } from 'react';
 import styles from './index.module.scss';
 
 const SignPage = () => {
+  const a = '';
+
   return (
     <Layout title={titleConfigs.defaultTitle} isNav={false}>
       <div className={styles['sign-wrapper']}>

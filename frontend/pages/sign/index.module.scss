@@ -11,16 +11,21 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   flex: 50%;
   background-color: $color-background;
 
   .signin-title {
+    font-size: 36px;
     margin-bottom: 50px;
     font-weight: bold;
     color: $color-bigText;
   }
   .signin-login-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     input {
       height: 40px;
       width: 300px;
@@ -33,15 +38,21 @@
       text-indent: 10px;
     }
   }
-  .signin-button {
-    height: 40px;
-    width: 300px;
-    background-color: #9292d4;
-    color: white;
-    margin-top: 20px;
-    border-radius: 20px;
-    border-color: transparent;
-    box-shadow: 2px 2px 5px 1px #a3a3a3;
+}
+.signin-button,
+.signup-button {
+  line-height: 40px;
+  width: 300px;
+  background-color: #9292d4;
+  color: white;
+  margin-top: 20px;
+  border-radius: 20px;
+  border-color: transparent;
+  box-shadow: 2px 2px 5px 1px #a3a3a3;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color-primary-hover;
   }
 }
 
@@ -56,6 +67,7 @@
   color: white;
 
   .signup-title {
+    font-size: 36px;
     margin-bottom: 50px;
     font-weight: bold;
   }
@@ -64,16 +76,6 @@
     height: 110px;
   }
   .signup-button {
-    height: 40px;
-    width: 300px;
-    background-color: #9292d4;
-    color: white;
-    margin-top: 20px;
-    border-radius: 20px;
-    border-color: transparent;
-    box-shadow: 2px 2px 5px 1px #a3a3a3;
-
-    border-color: white;
-    border-width: 1.5px;
+    border: white solid 1.5px;
   }
 }
