@@ -1,0 +1,51 @@
+@import '/styles/colors.scss';
+
+.button-primary {
+  margin-top: 18px;
+  padding: 0px 16px;
+  line-height: 40px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: $color-primary;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  transition: 0.3s;
+  border-radius: 20px;
+  border-color: transparent;
+  box-shadow: 2px 2px 5px 1px $color-sign;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $color-primary-hover;
+  }
+}
+
+.button-primary-signUp {
+  margin-top: 18px;
+  padding: 0px 16px;
+  line-height: 40px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: $color-primary-hover;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  transition: 0.3s;
+  border-radius: 20px;
+  border-color: transparent;
+  box-shadow: 2px 2px 5px 1px $color-sign;
+  border: white solid 1.5px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #b8b8eb;
+    border-color: transparent;
+  }
+}

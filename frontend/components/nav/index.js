@@ -1,12 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
+import router from 'next/router';
 
 import pathConfigs from 'configs/path';
 
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import styles from './index.module.scss';
 
 const NavComponent = () => {
-  const handleSignOut = () => {};
+  const handleSignOut = () => {
+    router.push('/');
+  };
 
   return (
     <div className={styles['nav-wrapper']}>
@@ -14,7 +18,7 @@ const NavComponent = () => {
         <div className={styles['nav-left']}>
           <Link href={pathConfigs.diary.create}>
             <a>
-              <img alt="create" src="/icons/create.png" />
+              <i className={`bi bi-pencil-square ${styles['navbar-create']}`} />
             </a>
           </Link>
         </div>
@@ -24,9 +28,7 @@ const NavComponent = () => {
           </a>
         </Link>
         <div className={styles['nav-right']}>
-          <div className={styles.button} onClick={handleSignOut}>
-            로그아웃
-          </div>
+          <div onClick={handleSignOut}>로그아웃</div>
         </div>
       </div>
     </div>

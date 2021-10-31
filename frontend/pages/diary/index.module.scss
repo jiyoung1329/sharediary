@@ -1,0 +1,99 @@
+@import '/styles/colors.scss';
+
+.diary-wrapper {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-background;
+  flex: 35%;
+  min-height: calc(100vh - 56px);
+  min-width: 400px;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
+
+  .left-head-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+    div {
+      font-size: 24px;
+      font-weight: bold;
+      color: $color-bigText;
+    }
+
+    .arrow-left,
+    .arrow-right {
+      margin-left: 2vw;
+      margin-right: 2vw;
+      padding: 10px;
+      font-size: 18px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .diary-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    // height: 100%;
+
+    .diary {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 20px;
+      background-color: white;
+      border-radius: 20px;
+    }
+  }
+}
+
+.right-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex: 65%;
+  max-height: calc(100vh - 56px);
+
+  .right-head-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .arrow-left,
+    .arrow-right {
+      margin-left: 5vw;
+      margin-right: 5vw;
+      padding: 10px;
+      font-size: 30px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

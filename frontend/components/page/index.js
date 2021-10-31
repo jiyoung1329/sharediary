@@ -8,7 +8,7 @@ const PageComponent = ({ title, children }) => (
       <link rel="icon" type="image/png" href="/favicon.png" />
       <meta charSet="utf-8" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
       <link
         href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Roboto&display=swap"
         rel="stylesheet"
