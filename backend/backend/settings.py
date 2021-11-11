@@ -52,7 +52,9 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES' : 
-    ('knox.auth.TokenAuthentication',),
+    [
+        'knox.auth.TokenAuthentication',
+    ]
     # 'DEFAULT_AUTHENTICATION_CLASSES':(
     #     'REST_framework.authentication.SessionAuthentication',
     #     'firebase_auth.authentication.FirebaseAuthentication',
