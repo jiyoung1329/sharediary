@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, authentication
 from rest_framework.response import Response
 from knox.models import AuthToken
 from django.contrib.auth.models import User
@@ -27,9 +27,10 @@ class RegisterAPI(generics.GenericAPIView):
         )
 
 class LoginAPI(generics.GenericAPIView):
+    queryset = User.objects.all()
     serializer_class = LoginSerializer
-    permission_classes = (permissions.AllowAny,)
-    
+    permission_classes = ()
+    print(serializer_class)
     def post(self, request, *args, **kwargs):
         print(request.data)
         serializer = self.get_serializer(data=request.data)
