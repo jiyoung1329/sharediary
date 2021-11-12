@@ -27,7 +27,7 @@ class RegisterAPI(generics.GenericAPIView):
         )
 
 class LoginAPI(generics.GenericAPIView):
-    queryset = User.objects.all()
+    queryset = User.objects.all() 
     serializer_class = LoginSerializer
     permission_classes = ()
     print(serializer_class)
