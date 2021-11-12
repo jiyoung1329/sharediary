@@ -16,7 +16,7 @@ const monthNames = [
 const today = new Date();
 
 const getYear = () => today.getFullYear();
-const getMonth = () => today.getMonth();
+const getMonth = () => today.getMonth() + 1;
 const getDate = () => today.getDate();
 const getMonthName = () => monthNames[today.getMonth()];
 
