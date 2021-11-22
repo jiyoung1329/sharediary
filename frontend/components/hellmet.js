@@ -1,12 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
 
-const PageComponent = ({ title, children }) => (
+const Helmet = ({ title }) => (
   <div>
     <Head>
       <title>{title}</title>
-      <link rel="icon" type="image/png" href="/favicon.png" />
       <meta charSet="utf-8" />
+      <link rel="shortcut icon" href="/favicon.ico" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
       <link
@@ -14,8 +14,7 @@ const PageComponent = ({ title, children }) => (
         rel="stylesheet"
       />
     </Head>
-    {children}
   </div>
 );
 
-export default PageComponent;
+export default Helmet;

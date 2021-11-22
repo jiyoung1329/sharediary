@@ -1,17 +1,18 @@
 import React from 'react';
 
 import NavComponent from 'components/nav';
-import PageComponent from 'components/page';
+import Helmet from 'components/hellmet';
 
 import styles from './index.module.scss';
 
 const Layout = ({ title, isNav = true, children }) => (
-  <PageComponent title={title}>
+  <>
+    <Helmet title={title} />
     <div className={styles['global-wrapper']}>
       {isNav ? <NavComponent /> : null}
       {children}
     </div>
-  </PageComponent>
+  </>
 );
 
 export default Layout;

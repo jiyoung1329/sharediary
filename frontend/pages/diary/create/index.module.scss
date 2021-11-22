@@ -1,8 +1,69 @@
 @import '/styles/colors.scss';
 
 .create-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 56px;
   width: 100vw;
-  height: 100vh;
+  min-height: calc(100vh - 56px);
   background-color: $color-background;
+
+  padding: 50px 20vw;
+}
+
+.date-wrapper {
+}
+
+.contents-wrapper {
+  width: 100%;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  min-height: 30px;
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.contents-wrapper-2 {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  .contents-title-wrapper {
+    font-size: 24px;
+    font-weight: bold;
+    color: $color-sign;
+    padding-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+
+    &:focus {
+      outline: none;
+    }
+  }
+  .contents-text-wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    resize: none;
+    min-height: 25vh;
+    color: $color-sign;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.add-place {
+  height: 30px;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
 }

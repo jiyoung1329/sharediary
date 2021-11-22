@@ -3,15 +3,12 @@ import Link from 'next/link';
 import router from 'next/router';
 
 import pathConfigs from 'configs/path';
+import signOut from 'utils/account/signOut';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import styles from './index.module.scss';
 
 const NavComponent = () => {
-  const handleSignOut = () => {
-    router.push('/');
-  };
-
   return (
     <div className={styles['nav-wrapper']}>
       <div className={styles['nav-contents']}>
@@ -28,7 +25,7 @@ const NavComponent = () => {
           </a>
         </Link>
         <div className={styles['nav-right']}>
-          <div onClick={handleSignOut}>로그아웃</div>
+          <div onClick={signOut}>로그아웃</div>
         </div>
       </div>
     </div>

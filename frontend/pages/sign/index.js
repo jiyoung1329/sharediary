@@ -12,6 +12,8 @@ import pathConfigs from 'configs/path';
 import styles from './index.module.scss';
 
 const SignPage = () => {
+  const [loading, setLoading] = useState(true);
+
   const handleSignIn = () => {
     router.push(pathConfigs.diary.default);
   };

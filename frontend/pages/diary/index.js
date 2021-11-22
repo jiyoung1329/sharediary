@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import Layout from 'components/layout';
-import DiaryComponents from 'components/diary';
+import DiaryListItem from 'components/listItem/diary';
 
 import getToday from 'utils/date/getDate';
 
@@ -37,7 +37,7 @@ const diaryPage = () => {
             {data.length === 0
               ? '작성한 다이어리가 없습니다.'
               : data.map((diary) => {
-                  <DiaryComponents info={diary} />;
+                  <DiaryListItem info={diary} />;
                 })}
           </div>
         </div>

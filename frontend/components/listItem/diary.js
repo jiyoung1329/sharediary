@@ -1,9 +1,9 @@
-import styles from './index.module.scss';
+import styles from './diary.module.scss';
 
-const DiaryComponents = ({ info }) => {
+const DiaryListItem = ({ info }) => {
   const { time, title, text, place, people, tags } = info;
 
   return <div className={styles['diary']}></div>;
 };
 
-export default DiaryComponents;
+export default DiaryListItem;

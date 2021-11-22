@@ -4,12 +4,12 @@ import ReactLoading from 'react-loading';
 import styles from './index.module.scss';
 
 const ButtonComponents = ({
-  loading,
+  loading = false,
   onClick,
   label,
   widthSize,
-  loadingSize,
-  loadingColor,
+  loadingSize = 15,
+  loadingColor = 'white',
   isSignUp = false,
 }) => {
   const size = `${loadingSize}px`;
