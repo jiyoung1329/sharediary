@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders', # 추가 - cors
-    'knox',
 
     # app
     'diary',
@@ -49,9 +49,7 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES' : 
     [
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-        # 'knox.auth.TokenAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ]
 
 }
@@ -63,7 +61,6 @@ REST_FRAMEWORK = {
 #     # ],
 #     'DEFAULT_AUTHENTICATION_CLASSES' : 
 #     [
-#         'knox.auth.TokenAuthentication',
 #         'rest_framework.authentication.BasicAuthentication',
 #         'rest_framework.authentication.SessionAuthentication',
 #         # 'rest_framework.authentication.TokenAuthentication',
