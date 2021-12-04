@@ -9,7 +9,7 @@ import titleConfigs from 'configs/title';
 
 import styles from './index.module.scss';
 
-const diaryPage = () => {
+const DiaryPage = () => {
   const [data, setData] = useState([]);
   const [monthYear, setMonthYear] = useState();
   const [todayDate, setTodayDate] = useState();
@@ -52,4 +52,4 @@ const diaryPage = () => {
     </Layout>
   );
 };
-export default diaryPage;
+export default DiaryPage;

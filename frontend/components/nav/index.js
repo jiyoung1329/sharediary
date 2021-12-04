@@ -13,13 +13,13 @@ const NavComponent = () => {
     <div className={styles['nav-wrapper']}>
       <div className={styles['nav-contents']}>
         <div className={styles['nav-left']}>
-          <Link href={pathConfigs.diary.create}>
+          <Link href={pathConfigs.create}>
             <a>
               <i className={`bi bi-pencil-square ${styles['navbar-create']}`} />
             </a>
           </Link>
         </div>
-        <Link href={pathConfigs.diary.default}>
+        <Link href={pathConfigs.default}>
           <a>
             <div className={styles.logo}>끄적끄적</div>
           </a>

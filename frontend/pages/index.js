@@ -1,14 +1,16 @@
+import DiaryPage from 'components/diary';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 const Home = () => {
-  const router = useRouter();
+  // const router = useRouter();
 
-  useEffect(() => {
-    router.push('/sign');
-  }, []);
+  // useEffect(() => {
+  //   router.push('/');
+  // }, []);
 
-  return null;
+  return <DiaryPage />;
+  // return null;
 };
 
 export default Home;

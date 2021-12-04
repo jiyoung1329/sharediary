@@ -9,17 +9,40 @@ import Layout from 'components/layout';
 import titleConfigs from 'configs/title';
 import pathConfigs from 'configs/path';
 
+import signIn from 'utils/account/signIn';
+
 import styles from './index.module.scss';
+import errorConfigs from 'configs/error';
+import saveSessionStorage from 'utils/account/sessionStorage';
 
 const SignPage = () => {
   const [loading, setLoading] = useState(true);
 
+  const [id, setId] = useState();
+  const [pwd, setPwd] = useState();
+
   const handleSignIn = () => {
-    router.push(pathConfigs.diary.default);
+    if (!id || !pwd) {
+      return alert('모든 값을 입력해주세요.');
+    }
+    const onSuccess = (res) => {
+      if (
+        res.non_field_errors &&
+        res.non_field_errors[0] === errorConfigs.incorrect.code
+      ) {
+        return alert(errorConfigs.incorrect.msg);
+      }
+      router.push(pathConfigs.default);
+    };
+    const onError = (err) => {
+      console.error(err);
+    };
+    const signInfo = { username: id, password: pwd };
+    signIn(signInfo, onSuccess, onError);
   };
 
   const handleSignUp = () => {
-    router.push(pathConfigs.sign.signUp);
+    router.push(pathConfigs.signUp);
   };
 
   return (
@@ -28,8 +51,18 @@ const SignPage = () => {
         <div className={styles['signin-wrapper']}>
           <div className={styles['signin-title']}>Sign In</div>
           <div className={styles['signin-login-wrapper']}>
-            <SignInputComponents type="text" placeholder="ID" />
-            <SignInputComponents type="password" placeholder="PASSWORD" />
+            <SignInputComponents
+              type="text"
+              placeholder="ID"
+              value={id}
+              onChange={({ target: { value } }) => setId(value)}
+            />
+            <SignInputComponents
+              type="password"
+              placeholder="PASSWORD"
+              value={pwd}
+              onChange={({ target: { value } }) => setPwd(value)}
+            />
             <ButtonComponents
               loading={false}
               onClick={handleSignIn}

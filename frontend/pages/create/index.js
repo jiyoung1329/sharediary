@@ -7,7 +7,7 @@ import titleConfigs from 'configs/title';
 
 import styles from './index.module.scss';
 
-const diaryPage = () => {
+const createPage = () => {
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
 
@@ -71,4 +71,4 @@ const diaryPage = () => {
     </Layout>
   );
 };
-export default diaryPage;
+export default createPage;
