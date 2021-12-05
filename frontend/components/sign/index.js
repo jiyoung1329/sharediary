@@ -32,7 +32,8 @@ const SignPage = () => {
       ) {
         return alert(errorConfigs.incorrect.msg);
       }
-      router.push(pathConfigs.default);
+      router.reload();
+      // router.push(pathConfigs.default);
     };
     const onError = (err) => {
       console.error(err);

@@ -5,7 +5,8 @@ const signOut = () => {
   try {
     if (window.confirm('로그아웃 하시겠습니까?')) {
       window.sessionStorage.clear();
-      router.push(pathConfigs.default);
+      router.reload();
+      // router.push(pathConfigs.default);
       // window.location.reload();
     }
   } catch (err) {

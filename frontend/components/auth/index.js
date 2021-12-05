@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import router from 'next/router';
+import router, { useRouter } from 'next/router';
 
 import SignPage from 'components/sign';
 import pathConfigs from 'configs/path';
 // import SignPage from 'pages/sign';
 
 const Auth = ({ children }) => {
+  const { pathname } = useRouter();
   const [logged, setLogged] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -22,9 +23,11 @@ const Auth = ({ children }) => {
     }
   }, []);
 
+  // if (pathname !== '/') router.push(pathConfigs.default);
+
   // if (loading) return <LoadingView />;
   if (!logged) {
-    router.push(pathConfigs.default);
+    // router.push(pathConfigs.default);
     return <SignPage />;
   }
 

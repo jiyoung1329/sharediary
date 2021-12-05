@@ -9,9 +9,9 @@ const signIn = async ({ username, password }, onSuccess, onError) => {
       body: JSON.stringify({ username, password }),
     });
 
-    const data = await response.json();
-    const result = saveSessionStorage(data.data);
-    onSuccess(result);
+    const { data } = await response.json();
+    saveSessionStorage(data);
+    onSuccess(data);
   } catch (err) {
     onError(err);
   }
