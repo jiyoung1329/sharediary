@@ -8,6 +8,7 @@ import getToday from 'utils/date/getDate';
 import titleConfigs from 'configs/title';
 
 import styles from './index.module.scss';
+import CalendarComponent from 'components/calendar';
 
 const DiaryPage = () => {
   const [data, setData] = useState([]);
@@ -42,11 +43,12 @@ const DiaryPage = () => {
           </div>
         </div>
         <div className={styles['right-wrapper']}>
-          <div className={styles['right-head-wrapper']}>
+          {/* <div className={styles['right-head-wrapper']}>
             <i className={`bi bi-chevron-left ${styles['arrow-left']}`} />
             <div>{monthYear}</div>
             <i className={`bi bi-chevron-right ${styles['arrow-right']}`} />
-          </div>
+          </div> */}
+          <CalendarComponent />
         </div>
       </div>
     </Layout>

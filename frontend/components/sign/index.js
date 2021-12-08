@@ -2,38 +2,45 @@
 import React, { useEffect, useState } from 'react';
 import router from 'next/router';
 
-import ButtonComponents from 'components/button';
 import SignInputComponents from 'components/input/sign';
-
+import LoadingButton from 'components/button/loadingButton';
+import SignUpButton from 'components/button/signUp';
 import Layout from 'components/layout';
+
 import titleConfigs from 'configs/title';
 import pathConfigs from 'configs/path';
+import errorConfigs from 'configs/error';
 
 import signIn from 'utils/account/signIn';
-
-import styles from './index.module.scss';
-import errorConfigs from 'configs/error';
 import saveSessionStorage from 'utils/account/sessionStorage';
 
+import styles from './index.module.scss';
+
 const SignPage = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const [id, setId] = useState();
   const [pwd, setPwd] = useState();
+
+  useEffect(() => {
+    // 다이어리 데이터 받아오기
+  });
 
   const handleSignIn = () => {
     if (!id || !pwd) {
       return alert('모든 값을 입력해주세요.');
     }
-    const onSuccess = (res) => {
+    setLoading(true);
+    const onSuccess = (data) => {
       if (
-        res.non_field_errors &&
-        res.non_field_errors[0] === errorConfigs.incorrect.code
+        data.non_field_errors &&
+        data.non_field_errors[0] === errorConfigs.incorrect.code
       ) {
+        setLoading(false);
         return alert(errorConfigs.incorrect.msg);
       }
+      saveSessionStorage(data);
       router.reload();
-      // router.push(pathConfigs.default);
     };
     const onError = (err) => {
       console.error(err);
@@ -64,8 +71,8 @@ const SignPage = () => {
               value={pwd}
               onChange={({ target: { value } }) => setPwd(value)}
             />
-            <ButtonComponents
-              loading={false}
+            <LoadingButton
+              loading={loading}
               onClick={handleSignIn}
               label="Login"
               widthSize="300px"
@@ -77,9 +84,7 @@ const SignPage = () => {
           <div className={styles['signup-contents']}>
             나만의 다이어리를 작성해보아요.
           </div>
-          <ButtonComponents
-            isSignUp={true}
-            loading={false}
+          <SignUpButton
             onClick={handleSignUp}
             label="Sign up"
             widthSize="300px"

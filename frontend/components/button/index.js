@@ -1,39 +1,16 @@
 import React from 'react';
-import ReactLoading from 'react-loading';
 
 import styles from './index.module.scss';
 
-const ButtonComponents = ({
-  loading = false,
-  onClick,
-  label,
-  widthSize,
-  loadingSize = 15,
-  loadingColor = 'white',
-  isSignUp = false,
-}) => {
-  const size = `${loadingSize}px`;
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={styles[`button-primary${isSignUp ? '-signUp' : ''}`]}
-      style={{ width: widthSize }}
-    >
-      <div style={{ width: size, height: size }} />
-      {label}
-      {loading ? (
-        <ReactLoading
-          type="spin"
-          color={loadingColor}
-          width={loadingSize}
-          height={loadingSize}
-        />
-      ) : (
-        <div style={{ width: size, height: size }} />
-      )}
-    </button>
-  );
-};
+const ButtonComponents = ({ onClick, label, widthSize }) => (
+  <button
+    type="button"
+    onClick={onClick}
+    className={styles['button-primary']}
+    style={{ width: widthSize }}
+  >
+    {label}
+  </button>
+);
 
 export default ButtonComponents;
