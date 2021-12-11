@@ -1,8 +1,8 @@
 import Auth from 'components/auth';
 
 import '@fullcalendar/common/main.css';
-import '@fullcalendar/react'; // must go before plugins
-import '@fullcalendar/daygrid'; // a plugin!
+import '@fullcalendar/daygrid/main.css';
+import '@fullcalendar/list/main.css';
 
 import 'styles/globals.scss';
 
