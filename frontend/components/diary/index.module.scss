@@ -63,29 +63,33 @@
   justify-content: center;
   align-items: center;
   flex: 65%;
-  max-height: calc(100vh - 56px);
+  height: calc(100vh - 56px);
 
-  .right-head-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-
-    div {
-      font-size: 36px;
-      font-weight: bold;
-    }
-
-    .arrow-left,
-    .arrow-right {
-      margin-left: 5vw;
-      margin-right: 5vw;
-      padding: 10px;
-      font-size: 30px;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
+  .calendar-wrapper {
+    width: 90%;
   }
+
+  // .right-head-wrapper {
+  //   display: flex;
+  //   flex-direction: row;
+  //   justify-content: center;
+  //   align-items: center;
+
+  //   div {
+  //     font-size: 36px;
+  //     font-weight: bold;
+  //   }
+
+  //   .arrow-left,
+  //   .arrow-right {
+  //     margin-left: 5vw;
+  //     margin-right: 5vw;
+  //     padding: 10px;
+  //     font-size: 30px;
+
+  //     &:hover {
+  //       cursor: pointer;
+  //     }
+  //   }
+  // }
 }

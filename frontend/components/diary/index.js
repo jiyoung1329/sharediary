@@ -43,12 +43,14 @@ const DiaryPage = () => {
           </div>
         </div>
         <div className={styles['right-wrapper']}>
+          <div className={styles['calendar-wrapper']}>
+            <CalendarComponent />
+          </div>
           {/* <div className={styles['right-head-wrapper']}>
             <i className={`bi bi-chevron-left ${styles['arrow-left']}`} />
             <div>{monthYear}</div>
             <i className={`bi bi-chevron-right ${styles['arrow-right']}`} />
           </div> */}
-          <CalendarComponent />
         </div>
       </div>
     </Layout>

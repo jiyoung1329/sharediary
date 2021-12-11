@@ -1,10 +1,11 @@
 import Auth from 'components/auth';
 
+import 'styles/globals.scss';
+
 import '@fullcalendar/common/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/list/main.css';
-
-import 'styles/globals.scss';
+import 'styles/calendar.scss';
 
 function MyApp({ Component, pageProps }) {
   return (
