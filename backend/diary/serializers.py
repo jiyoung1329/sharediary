@@ -1,28 +1,24 @@
 from rest_framework import serializers
-from .models import Article
-from .models import Comment
+from .models import *
 
-class ArticleSerializer(serializers.ModelSerializer):
+
+class DiarySerializer(serializers.ModelSerializer):
     class Meta:
-    # title = models.CharField(max_length=100)
-    # descriptions = models.TextField()
-    # date = models.DateTimeField()
 
         fields = (
-            'id',
             'title',
-            'descriptions',
+            'content',
             'date',
+            'place',
+            'people',
+            'tag',
+            'user',
         )
-        model = Article
+        model = Diary
 
-class CommentSerializer(serializers.ModelSerializer):
+class TagSerializer(serializers.ModelSerializer):
     class Meta:
-    # title = models.CharField(max_length=100)
-    # descriptions = models.TextField()
-    # date = models.DateTimeField()
         fields = (
-            'comment',
-            'diary_diary',
+            'tag',
         )
-        model = Comment
+        model = Tag
