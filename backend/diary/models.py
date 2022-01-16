@@ -7,21 +7,25 @@
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
 
-class Article(models.Model):
+class Diary(models.Model):
     title = models.CharField(max_length=100)
-    descriptions = models.TextField()
+    content = models.TextField()
     date = models.DateTimeField() 
+    place = models.TextField()
+    # 사람 태그
+    people = models.ManyToManyField('User', blank=True)
+    # 해시태그
+    tag = models.ManyToManyField('Tag', blank=True)
+    
+    # 작성자
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
 
     class Meta:
-        app_label = 'diary'
-        db_table = 'article'
-
-
-class Comment(models.Model):
-    comment = models.TextField()
-    diary_diary = models.ForeignKey(Article, on_delete=models.CASCADE)
+        db_table = 'diary'
+        
+class Tag(models.Model):
+    tag = model.TextField()
 
     class Meta:
-        app_label = 'diary'
-        db_table = 'comment'
+        db_table = 'tag'
 
