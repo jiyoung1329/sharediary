@@ -1,16 +1,20 @@
-const signIn = async ({ username, password }, onSuccess, onError) => {
+import apiConfigs from 'configs/api';
+
+const signIn = async ({ username, password }, onSuccess) => {
   try {
-    const url = '/api/signIn';
-    const response = await fetch(url, {
+    if (!username || !password) return;
+
+    const url = apiConfigs.signIn;
+    const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
-    });
-
-    const { data } = await response.json();
+    };
+    const res = await fetch(url, options);
+    const { data } = await res.json();
     onSuccess(data);
   } catch (err) {
-    onError(err);
+    console.error(err);
   }
 };
 

@@ -4,29 +4,16 @@ $color-label: #605c73;
 $color-input-border: #ecebf2;
 $color-input-border-hover: #5635db;
 
-.container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.label {
-  font-size: 14px;
-  color: $color-label;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
 .input {
+  height: 100%;
   width: 100%;
   // background-color: $color-light-grey-3;
   border: 1px solid $color-input-border;
-  height: 46px;
   font-size: 14px;
   padding: 16px;
-  // color: $color-paragraph-black;
+  color: $color-paragraph-black;
   &::placeholder {
-    // color: $color-grey-1;
+    color: $color-grey-1;
   }
   transition: 0.3s;
   &:focus {

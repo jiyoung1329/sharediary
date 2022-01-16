@@ -1,11 +1,10 @@
-/* eslint-disable react/jsx-boolean-value */
 import React, { useEffect, useState } from 'react';
 import router from 'next/router';
 
 import SignInputComponents from 'components/input/sign';
 import LoadingButton from 'components/button/loadingButton';
 import SignUpButton from 'components/button/signUp';
-import Layout from 'components/layout';
+import Helmet from 'components/hellmet';
 
 import titleConfigs from 'configs/title';
 import pathConfigs from 'configs/path';
@@ -30,6 +29,7 @@ const SignPage = () => {
     if (!id || !pwd) {
       return alert('모든 값을 입력해주세요.');
     }
+
     setLoading(true);
     const onSuccess = (data) => {
       if (
@@ -42,11 +42,9 @@ const SignPage = () => {
       saveSessionStorage(data);
       router.reload();
     };
-    const onError = (err) => {
-      console.error(err);
-    };
+
     const signInfo = { username: id, password: pwd };
-    signIn(signInfo, onSuccess, onError);
+    signIn(signInfo, onSuccess);
   };
 
   const handleSignUp = () => {
@@ -54,44 +52,47 @@ const SignPage = () => {
   };
 
   return (
-    <Layout title={titleConfigs.defaultTitle} isNav={false}>
+    <>
+      <Helmet title={titleConfigs.defaultTitle} />
       <div className={styles['sign-wrapper']}>
-        <div className={styles['signin-wrapper']}>
-          <div className={styles['signin-title']}>Sign In</div>
-          <div className={styles['signin-login-wrapper']}>
-            <SignInputComponents
-              type="text"
-              placeholder="ID"
-              value={id}
-              onChange={({ target: { value } }) => setId(value)}
-            />
-            <SignInputComponents
-              type="password"
-              placeholder="PASSWORD"
-              value={pwd}
-              onChange={({ target: { value } }) => setPwd(value)}
-            />
-            <LoadingButton
-              loading={loading}
-              onClick={handleSignIn}
-              label="Login"
-              widthSize="300px"
-            />
-          </div>
+        <div className={styles['sign-in-wrapper']}>
+          <div className={styles.title}>Sign In</div>
+          <SignInputComponents
+            type="text"
+            placeholder="ID"
+            value={id}
+            heightSize={40}
+            widthSize={350}
+            onChange={({ target: { value } }) => setId(value)}
+          />
+          <SignInputComponents
+            type="password"
+            placeholder="PASSWORD"
+            value={pwd}
+            heightSize={40}
+            widthSize={350}
+            onChange={({ target: { value } }) => setPwd(value)}
+          />
+          <LoadingButton
+            loading={loading}
+            label="Login"
+            heightSize={40}
+            widthSize={350}
+            onClick={handleSignIn}
+          />
         </div>
-        <div className={styles['signup-wrapper']}>
-          <div className={styles['signup-title']}>안녕하세요 !</div>
-          <div className={styles['signup-contents']}>
-            나만의 다이어리를 작성해보아요.
-          </div>
+        <div className={styles['sign-up-wrapper']}>
+          <div className={styles.title}>안녕하세요 !</div>
+          <div className={styles.text}>나만의 다이어리를 작성해보아요.</div>
           <SignUpButton
             onClick={handleSignUp}
             label="Sign up"
-            widthSize="300px"
+            heightSize={40}
+            widthSize={350}
           />
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 

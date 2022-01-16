@@ -11,7 +11,7 @@ import pathConfigs from 'configs/path';
 import signUp from 'utils/account/signUp';
 import errorConfigs from 'configs/error';
 
-import styles from '../index.module.scss';
+import styles from 'components/sign/index.module.scss';
 
 const SignPage = () => {
   const [id, setId] = useState();
@@ -26,19 +26,14 @@ const SignPage = () => {
       return alert('비밀번호 값이 동일하지 않습니다. 다시 입력해주세요.');
     }
     const onSuccess = (res) => {
-      console.log(res);
       if (res.username && res.username[0] === errorConfigs.existedId.code) {
         return alert(errorConfigs.existedId.msg);
       }
-      console.log(res);
       alert('회원가입이 완료되었습니다!');
       router.push(pathConfigs.default);
     };
-    const onError = (err) => {
-      console.error(err);
-    };
     const signInfo = { username: id, password: pwd };
-    signUp(signInfo, onSuccess, onError);
+    signUp(signInfo, onSuccess);
   };
 
   return (

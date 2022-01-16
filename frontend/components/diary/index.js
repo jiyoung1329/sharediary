@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import Layout from 'components/layout';
 import DiaryListItem from 'components/listItem/diary';
+import CalendarComponent from 'components/calendar';
 
 import getToday from 'utils/date/getDate';
 
 import titleConfigs from 'configs/title';
 
 import styles from './index.module.scss';
-import CalendarComponent from 'components/calendar';
 
 const DiaryPage = () => {
   const [data, setData] = useState([]);
