@@ -4,6 +4,6 @@ from . import views
 # from routers import router
 
 urlpatterns = [
-    path('', views.article_list),
-    path('<int:pk>/', views.article_detail),
+    # path('', views.article_list),
+    # path('<int:pk>/', views.article_detail),
 ]
