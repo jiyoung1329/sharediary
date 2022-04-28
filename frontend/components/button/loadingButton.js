@@ -8,6 +8,7 @@ const LoadingButton = ({
   onClick,
   label,
   widthSize,
+  heightSize,
   loadingSize = 15,
   loadingColor = 'white',
 }) => {
@@ -17,7 +18,7 @@ const LoadingButton = ({
       type="button"
       onClick={onClick}
       className={styles['button-primary']}
-      style={{ width: widthSize }}
+      style={{ width: widthSize, height: heightSize }}
     >
       <div style={{ width: size, height: size }} />
       {label}

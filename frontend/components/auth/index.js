@@ -1,33 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import router, { useRouter } from 'next/router';
 
 import SignPage from 'components/sign';
-import pathConfigs from 'configs/path';
-// import SignPage from 'pages/sign';
+import LoadingView from 'components/loading';
 
 const Auth = ({ children }) => {
-  const { pathname } = useRouter();
-  const [logged, setLogged] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isSign, setIsSign] = useState(false);
 
   useEffect(() => {
     try {
       const { userInfo } = window.sessionStorage;
       if (userInfo) {
-        setLogged(true);
+        setIsSign(true);
+      } else {
+        setIsSign(false);
       }
+      setLoading(false);
     } catch (err) {
-      console.error(err);
-      setLogged(false);
+      setIsSign(false);
       setLoading(false);
     }
   }, []);
 
-  // if (pathname !== '/') router.push(pathConfigs.default);
-
-  // if (loading) return <LoadingView />;
-  if (!logged) {
-    // router.push(pathConfigs.default);
+  if (loading) return <LoadingView />;
+  if (!isSign) {
     return <SignPage />;
   }
 

@@ -1,49 +1,85 @@
 @import '/styles/colors.scss';
 
 .sign-wrapper {
-  text-align: center;
-  display: flex;
   height: 100vh;
+  display: flex;
+  text-align: center;
 }
 
-.signin-wrapper {
+.sign-in-wrapper,
+.sign-up-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  flex: 50%;
-  background-color: $color-background;
+  justify-content: center;
+  flex: 1;
 
-  .signin-title {
+  .title {
     font-size: 36px;
     margin-bottom: 50px;
     font-weight: bold;
     color: $color-bigText;
   }
-  .signin-login-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  .text {
+    color: $color-white;
+    height: 140px;
+  }
+  .input-wrapper {
+    margin-bottom: 20px;
+  }
+  .button-wrapper {
+    margin-top: 20px;
   }
 }
 
-.signup-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  flex: 50%;
+.sign-in-wrapper {
+  background-color: $color-background;
+}
+.sign-up-wrapper {
   background-color: $color-primary;
-  color: #fff;
-
-  .signup-title {
-    font-size: 36px;
-    margin-bottom: 50px;
-    font-weight: bold;
-  }
-  .signup-contents {
-    height: 110px;
+  .title {
+    color: $color-white;
   }
 }
+
+// .signin-wrapper {
+//   // display: flex;
+//   // flex-direction: column;
+//   // justify-content: center;
+//   // align-items: center;
+//   flex: 50%;
+//   background-color: $color-background;
+
+//   .signin-title {
+//     font-size: 36px;
+//     margin-bottom: 50px;
+//     font-weight: bold;
+//     color: $color-bigText;
+//   }
+//   .signin-login-wrapper {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//   }
+// }
+
+// .signup-wrapper {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+
+//   flex: 50%;
+//   background-color: $color-primary;
+//   color: #fff;
+
+//   .signup-title {
+//     font-size: 36px;
+//     margin-bottom: 50px;
+//     font-weight: bold;
+//   }
+//   .signup-contents {
+//     height: 110px;
+//   }
+// }
