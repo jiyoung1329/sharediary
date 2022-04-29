@@ -1,33 +1,39 @@
 from rest_framework import serializers
-# from django.contrib.auth.models import User
-# from django.contrib.auth import authenticate
+from .models import User
+from django.contrib.auth import authenticate
+from django.contrib.auth import get_user_model
 
-# class UserSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ('id', "username")
+User = get_user_model()
 
-# class RegisterSerializer(serializers.ModelSerializer) : 
-#     class Meta:
-#         model = User
-#         fields = ("id", "username", "password")
-#         extra_kwargs = {"password" : {"write_only" : True}}
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('email', 'password')
 
-#     def create(self, validated_data):
-#         user = User.objects.create_user(
-#             validated_data['username'],None, validated_data['password']
-#             )
+class RegisterSerializer(serializers.ModelSerializer) : 
+    class Meta:
+        model = User
+        fields = ('email', 'password')
+        extra_kwargs = {"password" : {"write_only" : True}}
 
-#         return user
+    def create(self, validated_data):
+        user = User.objects.create_user(
+            validated_data['email'], validated_data['password']
+            )
 
-# class LoginSerializer(serializers.Serializer):
-#     username = serializers.CharField()
-#     password = serializers.CharField()
+        return user
 
-#     def validate(self, data):
-#         user = authenticate(**data)
-#         if user and user.is_active:
-#             return user
-#         raise serializers.ValidationError("Incorrect Credentials")
+class LoginSerializer(serializers.Serializer):
+    email = serializers.CharField()
+    password = serializers.CharField()
+
+    def validate(self, data):
+        email = data.get("email", None)
+        password = data.get("password", None)
+        user = authenticate(email=email, password=password)
+        print("serializer user", user)
+        if user and user.is_active:
+            return user
+        raise serializers.ValidationError("Incorrect Credentials")
 
         
