@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.base_user import BaseUserManager
+from django.utils import timezone
 
 
 class UserManager(BaseUserManager) : 
@@ -11,6 +12,7 @@ class UserManager(BaseUserManager) :
         """
         Creates and saves a User with the given email and password.
         """
+        print("test")
         if not email:
             raise ValueError('The given email must be set')
         email = self.normalize_email(email)
@@ -40,12 +42,14 @@ class User(AbstractBaseUser) :
         max_length=255,
         unique=True)
     
+    nickname = models.CharField(max_length=100, unique=True)
     is_superuser = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
     
     objects = UserManager()
     
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELD = ['email', 'password']
+    REQUIRED_FIELD = ['email', 'nickname', 'password']
     
     
 
