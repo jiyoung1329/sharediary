@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from rest_framework import generics
 from rest_framework.authentication import TokenAuthentication
@@ -7,9 +7,10 @@ from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
 
 
-from .models import User
+from django.contrib.auth import get_user_model
 from .serializers import UserSerializer, RegisterSerializer, LoginSerializer
 
+User = get_user_model()
 
 class RegisterAPI(generics.GenericAPIView):
     serializer_class = RegisterSerializer
