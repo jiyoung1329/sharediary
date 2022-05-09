@@ -9,9 +9,10 @@ from django.db import models
 from account.models import User
 
 class Diary(models.Model):
+    # title, content, date, place, people, tag, user
     title = models.CharField(max_length=100)
     content = models.TextField()
-    date = models.DateTimeField() 
+    created_at = models.DateTimeField(auto_now_add=True) 
     place = models.TextField()
     # 사람 태그
     people = models.ManyToManyField('account.User', blank=True, related_name="user_tag")
@@ -27,6 +28,7 @@ class Diary(models.Model):
         
 class Tag(models.Model):
     tag = models.TextField()
+    
 
     class Meta:
         db_table = 'tag'
