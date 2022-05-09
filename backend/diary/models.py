@@ -28,6 +28,7 @@ class Diary(models.Model):
         
 class Tag(models.Model):
     tag = models.TextField()
+    
 
     class Meta:
         db_table = 'tag'

@@ -15,9 +15,13 @@ def diary_list(request) :
     
 @api_view(['POST'])
 def diary_create(request) : 
+    print("0", request.data)
     serializer = DiarySerializer(data=request.data)
+    print(serializer)
+    print("1", request.user)
     if serializer.is_valid() : 
-        serializer.save()
+        print("2", request)
+        serializer.save(user=request.user)
         return Response(serializer.data)
 
 @api_view(['GET'])
