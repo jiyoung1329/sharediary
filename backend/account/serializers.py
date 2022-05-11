@@ -10,6 +10,21 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('email', 'nickname')
+        extra_kwargs = {
+            'nickname' : {'validators' : []}
+        }
+        
+
+
+class UserNickNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('nickname', )
+        extra_kwargs = {
+            'nickname' : {'validators' : []}
+        }
+        
+
 
 class RegisterSerializer(serializers.ModelSerializer) : 
     class Meta:
