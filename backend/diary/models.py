@@ -14,6 +14,11 @@ class Diary(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True) 
     place = models.TextField()
+    # 컬러 field
+    color = models.CharField(max_length=50)
+    # 일정 관련 필드
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
     # 사람 태그
     people = models.ManyToManyField('account.User', blank=True, related_name="diary_people")
     # 해시태그
@@ -32,10 +37,12 @@ class Tag(models.Model):
     class Meta:
         db_table = 'tag'
 
-# class Diary_tag(models.Model) : 
-#     tag = models.ForeignKey(Tag, on_delete=True)
-#     diary = models.ForeignKey(Diary, on_delete=True)
+
+class Image(models.Model): 
+    image = models.ImageField(default="", blank=True, upload_to="%Y/%m/%d")
+    diary = models.ForeignKey('Diary', on_delete=models.CASCADE, related_name="file_diary")
     
-# class Diary_people(models.Model) : 
-#     people = models.ForeignKey('account.User', on_delete=True)
-#     diary = models.ForeignKey(Diary, on_delete=True)
+    
+    
+    
+    

@@ -6,8 +6,8 @@ from . import views
 urlpatterns = [
     path('', views.DiaryView.as_view()),
     path('create/', views.DiaryView.as_view()),
-    # path('detail/<int:pk>', views.diary_detail),
+    path('delete/<int:pk>/', views.DiaryView.as_view()),
+    path('detail/<int:pk>/', views.DiaryView.as_view()),
     # path('update/<int:pk>', views.diary_update),
-    # path('delete/<int:pk>', views.diary_delete),
     # path('<int:pk>/', views.article_detail),
 ]
