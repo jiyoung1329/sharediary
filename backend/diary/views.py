@@ -8,7 +8,7 @@ from rest_framework.authentication import TokenAuthentication
 
 
 from .models import Diary
-from .serializers import DiarySerializer
+from .serializers import DiarySerializer, ImageSerializer
 
 
 class DiaryView(APIView) : 
@@ -26,9 +26,9 @@ class DiaryView(APIView) :
     
     # 게시물 생성
     def post(self, request, format=None) : 
-        serializer = DiarySerializer(data=request.data)
-        file_serializer = FileSerializer(data=request.FILES['file'])
-        print(serializer)
+        serializer = DiarySerializer(data=request.data, context={"request" : request})
+        
+            
         if serializer.is_valid() : 
             serializer.save(user=request.user)
             

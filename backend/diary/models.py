@@ -39,7 +39,7 @@ class Tag(models.Model):
 
 
 class Image(models.Model): 
-    image = models.ImageField(default="", blank=True, upload_to="%Y/%m/%d")
+    image = models.ImageField(blank=True, upload_to="%Y/%m/%d")
     diary = models.ForeignKey('Diary', on_delete=models.CASCADE, related_name="file_diary")
     
     

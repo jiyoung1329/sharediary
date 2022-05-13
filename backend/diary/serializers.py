@@ -1,6 +1,6 @@
 from dataclasses import field
 from wsgiref.validate import validator
-from django.forms import CharField, FileField
+from django.forms import CharField, ImageField
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator, UniqueTogetherValidator
 
@@ -23,7 +23,7 @@ class TagSerializer(serializers.ModelSerializer) :
 class ImageSerializer(serializers.ModelSerializer) : 
     class Meta : 
         model = Image
-        fields = ('file', )
+        fields = ('image', )
         
         
 # title, content, date, place, people, tag, user
@@ -33,16 +33,15 @@ class DiarySerializer(serializers.ModelSerializer):
     place = serializers.CharField(required=False)
     created_at = serializers.DateTimeField(read_only=True)
     user = UserNickNameSerializer(read_only=True)
-    file = FileField(required=False)
+    images = ImageSerializer(many=True, read_only=True)
     
     class Meta : 
         model = Diary
-        fields = '__all__'
+        fields = ['title', 'content', 'start_date', 'end_date', 'place', 'color', 'tag', 'people', 'user', 'images', 'created_at']
         
         
     def create(self, validated_data) : 
         print("validated_data", validated_data)
-        iamges = File
         # tag, people 정보 따로 뽑기
         tag_objects = []
         if "tag" in validated_data : 
@@ -71,6 +70,11 @@ class DiarySerializer(serializers.ModelSerializer):
         # diary-user manytomany 연결
         if people_objects : diary.people.set(people_objects)
         
+        # 이미지 파일 생성
+        images = self.context['request'].FILES
+        print(dict(images))
+        for image in images.getlist('images') : 
+            Image.objects.create(diary=diary, image=image)
         
             
         return diary
