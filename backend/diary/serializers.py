@@ -24,6 +24,9 @@ class ImageSerializer(serializers.ModelSerializer) :
     class Meta : 
         model = Image
         fields = ('image', )
+        extra_kwargs = {
+            'image' : {'validators' : []}
+        }
         
         
 # title, content, date, place, people, tag, user
@@ -33,7 +36,7 @@ class DiarySerializer(serializers.ModelSerializer):
     place = serializers.CharField(required=False)
     created_at = serializers.DateTimeField(read_only=True)
     user = UserNickNameSerializer(read_only=True)
-    images = ImageSerializer(many=True, read_only=True)
+    images = ImageSerializer(many=True, read_only=True, required=False)
     
     class Meta : 
         model = Diary
@@ -72,10 +75,11 @@ class DiarySerializer(serializers.ModelSerializer):
         
         # 이미지 파일 생성
         images = self.context['request'].FILES
+        print(images)
         print(dict(images))
         for image in images.getlist('images') : 
-            Image.objects.create(diary=diary, image=image)
+            image_object = Image.objects.create(diary=diary, image=image)
         
-            
+        
         return diary
 
