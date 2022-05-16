@@ -1,4 +1,5 @@
-from email import message
+import base64
+from django.core.files import File
 import os
 from django.conf import settings
 from django.shortcuts import get_object_or_404
@@ -44,13 +45,22 @@ class DiaryDetailView(APIView) :
     # 게시물 1개 조회
     def get(self, request, pk) :
         diary = get_object_or_404(Diary, pk=pk)
-        images = Image.objects.filter(diary=pk)
+        serializer = DiarySerializer(diary)
         
+        images = Image.objects.filter(diary=pk)
         image_serializers = []
         for image in images : 
             image_serializer = ImageSerializer(image)
-            image_serializers.append(image_serializer)
+            image_data = dict(image_serializer.data)
+            f = open(image_data["image"][1:], "rb")
+            data = base64.b64encode(File(f).read())
+            f.close()
+            image_data["image"] = data
+            print(image_serializer.data)
+            image_serializers.append(image_data)
         
-        serializer = DiarySerializer(diary)
-        return Response(serializer.data, status=200)
+        return Response({
+            "diary" : serializer.data,
+            "images" : image_serializers,
+        }, status=200)
 
