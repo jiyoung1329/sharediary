@@ -7,8 +7,8 @@ from rest_framework.validators import UniqueValidator, UniqueTogetherValidator
 from django.contrib.auth import get_user_model
 
 from .models import Diary, Tag, Image
-from account.models import User
-from  account.serializers import UserNickNameSerializer
+from accounts.models import User
+from  accounts.serializers import UserNickNameSerializer
 
 User = get_user_model()
         

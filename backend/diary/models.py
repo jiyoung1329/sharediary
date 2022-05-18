@@ -6,7 +6,7 @@
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from django.db import models
-from account.models import User
+from accounts.models import User
 
 class Diary(models.Model):
     # title, content, date, place, people, tag, user
@@ -20,12 +20,12 @@ class Diary(models.Model):
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
     # 사람 태그
-    people = models.ManyToManyField('account.User', blank=True, related_name="diary_people")
+    people = models.ManyToManyField('accounts.User', blank=True, related_name="diary_people")
     # 해시태그
     tag = models.ManyToManyField('Tag', blank=True, related_name="diary_tag")
     
     # 작성자
-    user = models.ForeignKey('account.User', on_delete=models.CASCADE, related_name="diary_user")
+    user = models.ForeignKey('accounts.User', on_delete=models.CASCADE, related_name="diary_user")
 
     # class Meta:
         # db_table = 'diary'

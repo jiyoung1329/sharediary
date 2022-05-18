@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 
     # app
     'diary',
-    'account',
+    'accounts',
 ]
 
 REST_FRAMEWORK = {
@@ -170,7 +170,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 KEY_PATH = os.path.join(BASE_DIR, 'key')
 
-AUTH_USER_MODEL = 'account.User' 
+AUTH_USER_MODEL = 'accounts.User' 
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
