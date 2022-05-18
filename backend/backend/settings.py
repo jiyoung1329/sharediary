@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
+from datetime import timedelta
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -38,38 +38,39 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # django-restframework
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_simplejwt.token_blacklist',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+    
+    #django-allauth
+    'allauth',
+    # 'allauth.account',
+    'allauth.socialaccount',
+    
+    #cors
     'corsheaders', # 추가 - cors
 
     # app
     'diary',
     'account',
 ]
+
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES' : (
+      'rest_framework.permissions.IsAuthenticated',
+    ),
     'DEFAULT_AUTHENTICATION_CLASSES' : 
     [
+        'rest_framework.authentication.SessionAuthentication',
+        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ],
 
 }
 
-# REST_FRAMEWORK = {
-#     # 'DEFAULT_PERMISSION_CLASSES' : [
-#     #     # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-#     #     'rest_framework.permissions.IsAdminUser',
-#     # ],
-#     'DEFAULT_AUTHENTICATION_CLASSES' : 
-#     [
-#         'rest_framework.authentication.BasicAuthentication',
-#         'rest_framework.authentication.SessionAuthentication',
-#         # 'rest_framework.authentication.TokenAuthentication',
-#     ]
-#     # 'DEFAULT_AUTHENTICATION_CLASSES':(
-#     #     'REST_framework.authentication.SessionAuthentication',
-#     #     'firebase_auth.authentication.FirebaseAuthentication',
-#     # ),
-# }
 
 MIDDLEWARE = [
     # 'corsheaders.middleware.CorsMiddleware',     # 추가 - cors
@@ -168,4 +169,21 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 KEY_PATH = os.path.join(BASE_DIR, 'key')
+
 AUTH_USER_MODEL = 'account.User' 
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+REST_USE_JWT = True
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=2),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+}
+SITE_ID = 1

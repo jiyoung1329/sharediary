@@ -33,6 +33,21 @@ class DiaryView(APIView) :
             print(serializer.errors)
             return Response(serializer.data, status=400)
    
+   # 게시물 수정
+    def update(self, request, pk) : 
+        diary = get_object_or_404(Diary, pk=pk)
+        serializer = DiarySerializer(data=request.data, context={"request" : request})
+        
+        print(request.data)    
+        if serializer.is_valid() : 
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=201)
+        else :
+            print("serializer error ")
+            print(serializer.errors)
+            return Response(serializer.data, status=400)
+   
+   
     # 게시물 삭제
     def delete(self, request, pk) : 
         model = Diary.objects.get(pk=pk)
