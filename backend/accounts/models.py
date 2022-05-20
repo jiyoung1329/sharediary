@@ -44,6 +44,7 @@ class User(AbstractBaseUser) :
     
     nickname = models.CharField(max_length=100, unique=True)
     is_superuser = models.BooleanField(default=False)
+    image = models.ImageField(default='media/default.jpeg', upload_to="%Y/%m/%d")
     created_at = models.DateTimeField(auto_now_add=True)
     
     objects = UserManager()
