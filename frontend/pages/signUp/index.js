@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import router from 'next/router';
 
 import ButtonComponents from 'components/button';
 import SignInputComponents from 'components/input/sign';
-import Layout from 'components/layout';
+import Helmet from 'components/helmet';
 
 import titleConfigs from 'configs/title';
 import pathConfigs from 'configs/path';
@@ -25,6 +25,7 @@ const SignPage = () => {
     if (pwd !== ckpwd) {
       return alert('비밀번호 값이 동일하지 않습니다. 다시 입력해주세요.');
     }
+
     const onSuccess = (res) => {
       if (res.username && res.username[0] === errorConfigs.existedId.code) {
         return alert(errorConfigs.existedId.msg);
@@ -32,12 +33,14 @@ const SignPage = () => {
       alert('회원가입이 완료되었습니다!');
       router.push(pathConfigs.default);
     };
+
     const signInfo = { username: id, password: pwd };
     signUp(signInfo, onSuccess);
   };
 
   return (
-    <Layout title={titleConfigs.signUpTitle} isNav={false}>
+    <>
+      <Helmet title={titleConfigs.signUpTitle} />
       <div className={styles['sign-wrapper']}>
         <div className={styles['signin-wrapper']}>
           <div className={styles['signin-title']}>Sign Up</div>
@@ -75,7 +78,7 @@ const SignPage = () => {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 

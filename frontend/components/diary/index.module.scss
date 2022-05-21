@@ -1,6 +1,7 @@
 @import '/styles/colors.scss';
 
 .diary-wrapper {
+  width: 100%;
   margin-top: 56px;
   display: flex;
   flex-direction: row;
@@ -13,10 +14,9 @@
   flex-direction: column;
   align-items: center;
   background-color: $color-background;
-  flex: 35%;
+  flex: 1;
   min-height: calc(100vh - 56px);
   min-width: 400px;
-
   @media (max-width: 900px) {
     display: none;
   }
@@ -26,8 +26,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
-
+    margin-top: 50px;
     div {
       font-size: 24px;
       font-weight: bold;
@@ -40,7 +39,6 @@
       margin-right: 2vw;
       padding: 10px;
       font-size: 18px;
-
       &:hover {
         cursor: pointer;
       }
@@ -62,34 +60,11 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex: 65%;
+  flex: 2;
   height: calc(100vh - 56px);
+  background-color: $color-white;
 
   .calendar-wrapper {
     width: 90%;
   }
-
-  // .right-head-wrapper {
-  //   display: flex;
-  //   flex-direction: row;
-  //   justify-content: center;
-  //   align-items: center;
-
-  //   div {
-  //     font-size: 36px;
-  //     font-weight: bold;
-  //   }
-
-  //   .arrow-left,
-  //   .arrow-right {
-  //     margin-left: 5vw;
-  //     margin-right: 5vw;
-  //     padding: 10px;
-  //     font-size: 30px;
-
-  //     &:hover {
-  //       cursor: pointer;
-  //     }
-  //   }
-  // }
 }

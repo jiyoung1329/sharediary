@@ -4,7 +4,7 @@ import router from 'next/router';
 import SignInputComponents from 'components/input/sign';
 import LoadingButton from 'components/button/loadingButton';
 import SignUpButton from 'components/button/signUp';
-import Helmet from 'components/hellmet';
+import Helmet from 'components/helmet';
 
 import titleConfigs from 'configs/title';
 import pathConfigs from 'configs/path';
@@ -20,10 +20,6 @@ const SignPage = () => {
 
   const [id, setId] = useState();
   const [pwd, setPwd] = useState();
-
-  useEffect(() => {
-    // 다이어리 데이터 받아오기
-  });
 
   const handleSignIn = () => {
     if (!id || !pwd) {

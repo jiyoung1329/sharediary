@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-import Layout from 'components/layout';
+import Helmet from 'components/helmet';
+import NavComponent from 'components/nav';
 import ButtonComponents from 'components/button';
 
 import titleConfigs from 'configs/title';
@@ -13,7 +14,6 @@ const createPage = () => {
 
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
-
   const [place, setPlace] = useState('');
   const [people, setPeople] = useState([]);
   const [tags, setTags] = useState([]);
@@ -26,18 +26,20 @@ const createPage = () => {
   };
 
   return (
-    <Layout title={titleConfigs.createTitle}>
+    <>
+      <Helmet title={titleConfigs.createTitle} />
+      <NavComponent />
       <div className={styles['create-wrapper']}>
         <div className={styles['date-wrapper']}>date</div>
         <div className={styles['contents-wrapper']}>
           <div className={styles['contents-wrapper-2']}>
             <input
-              className={styles['contents-title-wrapper']}
+              className={styles.title}
               placeholder="제목을 입력하세요 (50자 이내)."
               onChange={({ value }) => setTitle(value)}
             />
             <textarea
-              className={styles['contents-text-wrapper']}
+              className={styles.text}
               placeholder="내용을 입력하세요(1000자 이내)."
               onChange={({ value }) => setText(value)}
             />
@@ -49,26 +51,25 @@ const createPage = () => {
           ) : (
             <div className={styles['add-place']}>
               <img alt="plus" src="/icons/plus.png" />
-              <div>a</div>
+              <div>장소</div>
             </div>
           )}
         </div>
-        <div className={styles['contents-wrapper']}>ㅁ</div>
-        <div className={styles['contents-wrapper']}></div>
+        <div className={styles['contents-wrapper']}>사람</div>
+        <div className={styles['contents-wrapper']}>태그</div>
 
-        <div className={styles['contents-wrapper']}>
-          {photos.length === 0 ? 0 : 1}
-        </div>
+        <div className={styles['contents-wrapper']}>사진</div>
         <div className={styles['button-wrapper']}>
           <ButtonComponents
             onClick={handleClick}
-            label={'Create'}
+            label="Create"
             widthSize={120}
+            heightSize={40}
             loading={loading}
           />
         </div>
-      </div>
-    </Layout>
+      </div>{' '}
+    </>
   );
 };
 export default createPage;

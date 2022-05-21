@@ -4,6 +4,7 @@
   height: 100vh;
   display: flex;
   text-align: center;
+  background-color: $color-background;
 }
 
 .sign-in-wrapper,
@@ -16,7 +17,7 @@
 
   .title {
     font-size: 36px;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     font-weight: bold;
     color: $color-bigText;
   }
@@ -32,9 +33,6 @@
   }
 }
 
-.sign-in-wrapper {
-  background-color: $color-background;
-}
 .sign-up-wrapper {
   background-color: $color-primary;
   .title {

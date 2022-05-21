@@ -9,7 +9,7 @@ const LoadingButton = ({
   label,
   widthSize,
   heightSize,
-  loadingSize = 15,
+  loadingSize = 16,
   loadingColor = 'white',
 }) => {
   const size = `${loadingSize}px`;
