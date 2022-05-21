@@ -125,3 +125,5 @@ dist
 .venv/
 share-diary-63ba7-firebase-adminsdk-nk27a-1c2c37e865.json
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+mysql_account.txt

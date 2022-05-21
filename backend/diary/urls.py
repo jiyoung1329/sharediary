@@ -4,6 +4,10 @@ from . import views
 # from routers import router
 
 urlpatterns = [
-    path('', views.article_list),
-    path('<int:pk>/', views.article_detail),
+    path('', views.DiaryView.as_view()),
+    path('create/', views.DiaryView.as_view()),
+    path('update/<int:pk>/', views.DiaryView.as_view()),
+    path('delete/<int:pk>/', views.DiaryView.as_view()),
+    path('detail/<int:pk>/', views.DiaryDetailView.as_view()),
+    # path('update/<int:pk>', views.diary_update),
 ]
