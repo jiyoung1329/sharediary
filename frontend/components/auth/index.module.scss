@@ -1,0 +1,9 @@
+@import '/styles/colors.scss';
+
+.container {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-background;
+}
