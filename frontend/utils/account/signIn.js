@@ -1,6 +1,6 @@
 import apiConfigs from 'configs/api';
 
-const signIn = async ({ username, password }, onSuccess) => {
+const signIn = async ({ username, password }) => {
   try {
     if (!username || !password) return;
 
@@ -10,9 +10,11 @@ const signIn = async ({ username, password }, onSuccess) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
     };
+
     const res = await fetch(url, options);
+
     const { data } = await res.json();
-    onSuccess(data);
+    return data;
   } catch (err) {
     console.error(err);
   }
