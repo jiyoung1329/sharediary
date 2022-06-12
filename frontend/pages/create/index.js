@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Helmet from 'components/helmet';
 import NavComponent from 'components/nav';
 import ButtonComponents from 'components/button';
+import textEditor from 'components/textEditor';
 
 import titleConfigs from 'configs/title';
 

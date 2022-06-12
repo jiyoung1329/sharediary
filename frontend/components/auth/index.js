@@ -25,7 +25,7 @@ const Auth = ({ children }) => {
       }
       setLoading(false);
 
-      // setIsSign(true); // test
+      setIsSign(true); // test
     } catch (err) {
       setIsSign(false);
       setLoading(false);
