@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Helmet from 'components/helmet';
 import NavComponent from 'components/nav';
 import ButtonComponents from 'components/button';
-import textEditor from 'components/textEditor';
+import TextEditor from 'components/textEditor';
 
 import titleConfigs from 'configs/title';
 
@@ -30,6 +30,7 @@ const createPage = () => {
     <>
       <Helmet title={titleConfigs.createTitle} />
       <NavComponent />
+      {/* <TextEditor /> */}
       <div className={styles['create-wrapper']}>
         <div className={styles['date-wrapper']}>date</div>
         <div className={styles['contents-wrapper']}>
@@ -69,7 +70,7 @@ const createPage = () => {
             loading={loading}
           />
         </div>
-      </div>{' '}
+      </div>
     </>
   );
 };
