@@ -8,7 +8,7 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 function Editor({ onChange, editorLoaded, name, value }) {
   const editorRef = useRef();
-  // const { CKEditor, ClassicEditor } = editorRef.current || {};
+  const { CKEditor, ClassicEditor } = editorRef.current || {};
 
   useEffect(() => {
     editorRef.current = {

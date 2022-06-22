@@ -17,7 +17,6 @@ const createPage = () => {
   const [text, setText] = useState('');
   const [place, setPlace] = useState('');
   const [people, setPeople] = useState([]);
-  const [tags, setTags] = useState([]);
   const [photos, setPhotos] = useState([]);
 
   const [loading, setLoading] = useState(false);
@@ -47,7 +46,7 @@ const createPage = () => {
             />
           </div>
         </div>
-        <div className={styles['contents-wrapper']}>
+        {/* <div className={styles['contents-wrapper']}>
           {place ? (
             place
           ) : (
@@ -56,7 +55,7 @@ const createPage = () => {
               <div>장소</div>
             </div>
           )}
-        </div>
+        </div> */}
         <div className={styles['contents-wrapper']}>사람</div>
         <div className={styles['contents-wrapper']}>태그</div>
 
