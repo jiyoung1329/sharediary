@@ -11,7 +11,7 @@ import pathConfigs from 'configs/path';
 import errorConfigs from 'configs/error';
 
 import signIn from 'utils/account/signIn';
-import saveSessionStorage from 'utils/account/sessionStorage';
+import saveSessionStorage from 'utils/account/saveUserInfo';
 
 import styles from './index.module.scss';
 
@@ -21,12 +21,12 @@ const SignPage = () => {
   const [id, setId] = useState();
   const [pwd, setPwd] = useState();
 
-  const handleSignIn = () => {
+  const handleSignIn = async () => {
     if (!id || !pwd) {
       return alert('모든 값을 입력해주세요.');
     }
-
     setLoading(true);
+
     const onSuccess = (data) => {
       if (
         data.non_field_errors &&
@@ -40,7 +40,13 @@ const SignPage = () => {
     };
 
     const signInfo = { username: id, password: pwd };
-    signIn(signInfo, onSuccess);
+
+    const a = await signIn(signInfo);
+
+    if (!a) {
+      alert('다시 시도해주세요.');
+      setLoading(false);
+    } else onSuccess(a);
   };
 
   const handleSignUp = () => {
