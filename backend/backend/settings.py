@@ -10,8 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+import json
 import os
 from datetime import timedelta
+from django.core.exceptions import ImproperlyConfigured
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +23,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '9tyx_=u*_)c$ma@a@e8fxpd7g4&!!q4%i6mj7$uc!qdv-+qv2m'
+secret_file = os.path.join(BASE_DIR, 'secrets.json')
+
+with open(secret_file) as f:
+    secrets = json.loads(f.read())
+
+def get_secret(setting, secrets=secrets):
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = "Set the {} environment variable".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+SECRET_KEY = get_secret("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -65,6 +80,8 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES' : 
     [
         'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
+        
         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ],
