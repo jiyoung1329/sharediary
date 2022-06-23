@@ -17,7 +17,7 @@
     "@fullcalendar/list": "^5.10.1",
     "@fullcalendar/react": "^5.10.1",
     "bootstrap-icons": "^1.6.1",
-    "next": "12.0.7",
+    "next": "^12.1.6",
     "next-transpile-modules": "^9.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",

@@ -21,7 +21,7 @@ class Diary(models.Model):
     end_date = models.DateTimeField()
     # 사람 태그
     people = models.ManyToManyField('accounts.User', blank=True, related_name="diary_people")
-    # 해시태그
+    # 해시태그 - 제거 예정
     tag = models.ManyToManyField('Tag', blank=True, related_name="diary_tag")
     
     # 작성자
