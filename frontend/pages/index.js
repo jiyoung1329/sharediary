@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import DiaryPage from 'components/diary';
 import pathConfigs from 'configs/path';
+import Auth from 'components/auth';
 
 const Home = () => {
   const router = useRouter();
@@ -11,7 +11,7 @@ const Home = () => {
     router.push(pathConfigs.default);
   }, []);
 
-  return <DiaryPage />;
+  return <Auth />;
 };
 
 export default Home;
