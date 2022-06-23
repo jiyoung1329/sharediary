@@ -3,21 +3,21 @@ import React, { useState } from 'react';
 import Helmet from 'components/helmet';
 import NavComponent from 'components/nav';
 import ButtonComponents from 'components/button';
-import TextEditor from 'components/textEditor';
+// import TextEditor from 'components/textEditor';
 
 import titleConfigs from 'configs/title';
 
 import styles from './index.module.scss';
 
 const createPage = () => {
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+  // const [startDate, setStartDate] = useState();
+  // const [endDate, setEndDate] = useState();
 
-  const [title, setTitle] = useState('');
-  const [text, setText] = useState('');
-  const [place, setPlace] = useState('');
-  const [people, setPeople] = useState([]);
-  const [photos, setPhotos] = useState([]);
+  // const [title, setTitle] = useState('');
+  // const [text, setText] = useState('');
+  // const [place, setPlace] = useState('');
+  // const [people, setPeople] = useState([]);
+  // const [photos, setPhotos] = useState([]);
 
   const [loading, setLoading] = useState(false);
 
